@@ -21,7 +21,7 @@ PRETRAINED_PATH = '{}/DeepMoji/model/deepmoji_weights.hdf5'.format(ROOT_PATH)
 
 WEIGHTS_DIR = tempfile.mkdtemp()
 
-NB_TOKENS = 100000
+NB_TOKENS = 50000
 NB_EMOJI_CLASSES = 64
 FINETUNING_METHODS = ['last', 'full', 'new', 'chain-thaw']
 FINETUNING_METRICS = ['acc', 'weighted']
