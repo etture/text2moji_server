@@ -95,6 +95,8 @@ class SentenceTokenizer():
         self.wordgen.stream = sentences
         next_insert = 0
         n_ignored_unknowns = 0
+        print('sentences: {}'.format(sentences))
+        print('wordgen: {}, wordge.stream: {}'.format(self.wordgen, self.wordgen.stream))
         for s_words, s_info in self.wordgen:
             print('s_words: {}, s_info: {}'.format(s_words, s_info))
             s_tokens = self.find_tokens(s_words)
