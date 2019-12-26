@@ -11,6 +11,8 @@ import pandas as pd
 import tensorflow as tf
 from flask import Flask, request, jsonify
 from flask_cors import CORS, cross_origin
+from konlpy.tag import Okt
+
 from deepmoji.global_variables import (
     PRETRAINED_PATH,
     NB_TOKENS,
@@ -31,6 +33,7 @@ from deepmoji.tokenizer import tokenize
 app = Flask(__name__)
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
+okt = Okt()
 
 with open(VOCAB_PATH, 'r') as f:
     vocabulary = json.load(f)

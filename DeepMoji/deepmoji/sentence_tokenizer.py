@@ -11,7 +11,9 @@ from word_generator import WordGenerator
 from global_variables import SPECIAL_TOKENS
 from sklearn.model_selection import train_test_split
 from copy import deepcopy
+from konlpy.tag import Okt
 
+okt = Okt()
 
 class SentenceTokenizer():
     """ Create numpy array of tokens corresponding to input sentences.
@@ -96,8 +98,11 @@ class SentenceTokenizer():
         next_insert = 0
         n_ignored_unknowns = 0
         print('sentences: {}'.format(sentences))
-        print('wordgen: {}, wordge.stream: {}'.format(self.wordgen, self.wordgen.stream))
-        for s_words, s_info in self.wordgen:
+        print('wordgen: {}, wordgen.stream: {}'.format(self.wordgen, self.wordgen.stream))
+        # for s_words, s_info in self.wordgen:
+        for sent in sentences:
+            s_info = {}
+            s_words = okt.morphs(sent)
             print('s_words: {}, s_info: {}'.format(s_words, s_info))
             s_tokens = self.find_tokens(s_words)
             print('s_tokens: {}'.format(s_tokens))

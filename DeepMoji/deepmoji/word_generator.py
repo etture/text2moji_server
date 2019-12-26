@@ -222,6 +222,7 @@ class WordGenerator():
 
         for line in self.stream:
             valid, words, info = self.extract_valid_sentence_words(line)
+            print('valid: {}, words: {}, info: {}'.format(valid, words, info))
 
             # Words may be filtered away due to unidecode etc.
             # In that case the words should not be passed on.
