@@ -96,7 +96,9 @@ class SentenceTokenizer():
         next_insert = 0
         n_ignored_unknowns = 0
         for s_words, s_info in self.wordgen:
+            print('s_words: {}, s_info: {}'.format(s_words, s_info))
             s_tokens = self.find_tokens(s_words)
+            print('s_tokens: {}'.format(s_tokens))
 
             if (self.ignore_sentences_with_only_custom and
                 np.all([True if t < len(SPECIAL_TOKENS)
@@ -108,6 +110,7 @@ class SentenceTokenizer():
             tokens[next_insert, :len(s_tokens)] = s_tokens
             infos.append(s_info)
             next_insert += 1
+            print('tokens: {}'.format(tokens))
 
         # For standard word generators all sentences should be tokenized
         # this is not necessarily the case for custom wordgenerators as they

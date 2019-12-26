@@ -49,6 +49,7 @@ def get_results():
     elif request.method == 'POST':
         sentence = request.json.get('sentence', '')
         tokenized, _, _ = st.tokenize_sentences([sentence])
+        print(tokenized)
         with graph.as_default():
             prob = model.predict(tokenized)
         results = dict()
@@ -57,7 +58,7 @@ def get_results():
             o_emoji_str = get_emoji_from_index(p).encode('unicode_escape')
             # print(o_emoji_str)
             # print(o_emoji_str[2])
-            if o_emoji_str[:5] == '\U000':
+            if o_emoji_str[:5] == r'\U000':
                 emoji_str = o_emoji_str[5:]
             else:
                 emoji_str = o_emoji_str[2:]
