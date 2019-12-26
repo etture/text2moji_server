@@ -102,7 +102,7 @@ class SentenceTokenizer():
         # for s_words, s_info in self.wordgen:
         for sent in sentences:
             s_info = {}
-            s_words = okt.morphs(sent)
+            s_words = okt.morphs(sent, norm=True, stem=True)
             print('s_words: {}, s_info: {}'.format(s_words, s_info))
             s_tokens = self.find_tokens(s_words)
             print('s_tokens: {}'.format(s_tokens))
