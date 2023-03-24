@@ -13,6 +13,6 @@ setup(
         'numpy==1.13.1',
         'scikit-learn==0.19.0',
         'text-unidecode==1.0',
-        'tensorflow==1.3'
+        'tensorflow==2.11.1'
     ],
 )
